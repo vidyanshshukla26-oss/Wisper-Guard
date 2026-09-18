@@ -14,14 +14,17 @@ export const FRIENDBOT_URL = 'https://friendbot.stellar.org'
 export const NETWORK_PASSPHRASE = Networks.TESTNET
 export const server = new Horizon.Server(HORIZON_URL)
 
-type FreighterResult<T> = { value?: T; error?: string } | T
+type FreighterResult<T> = { value?: T; address?: string; signedTxXdr?: string; error?: unknown } | T
 
 function resultValue<T>(result: FreighterResult<T>): T {
   if (typeof result === 'object' && result !== null && 'error' in result && result.error) {
-    throw new Error(result.error)
+    const error = result.error as { message?: string } | string
+    throw new Error(typeof error === 'string' ? error : error.message ?? 'Freighter request failed.')
   }
-  if (typeof result === 'object' && result !== null && 'value' in result) {
-    return result.value as T
+  if (typeof result === 'object' && result !== null) {
+    if ('address' in result && result.address) return result.address as T
+    if ('signedTxXdr' in result && result.signedTxXdr) return result.signedTxXdr as T
+    if ('value' in result && result.value) return result.value as T
   }
   return result as T
 }
