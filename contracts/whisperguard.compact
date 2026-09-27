@@ -1,0 +1,28 @@
+pragma language_version 0.23;
+
+import CompactStandardLibrary;
+
+// Public: reportCount and one opaque commitment per accepted demo submission.
+// Private: reportSecret and reportSalt are witnesses and are never written to the ledger.
+// This demo does not verify employment or department credentials.
+export ledger reportCount: Uint<32>;
+export ledger reportCommitments: Set<Bytes<32>>;
+
+witness reportSecret(): Bytes<32>;
+witness reportSalt(): Bytes<32>;
+
+constructor() {
+  reportCount = 0;
+}
+
+export circuit anchorReport(): [] {
+  const secret = reportSecret();
+  const salt = reportSalt();
+  const commitment = persistentCommit<Bytes<32>>(secret, salt);
+
+  assert(!reportCommitments.member(commitment), "This report commitment was already recorded");
+  assert(reportCount < 4294967295, "The report counter is full");
+
+  reportCommitments.insert(disclose(commitment));
+  reportCount = reportCount + 1;
+}

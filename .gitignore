@@ -1,5 +1,6 @@
 node_modules
 dist
+managed
 .DS_Store
 .env
 .pnpm-store

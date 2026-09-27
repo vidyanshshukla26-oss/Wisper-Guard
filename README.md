@@ -1,6 +1,115 @@
 # WhisperGuard
 
-WhisperGuard is a consumer-facing concept for private workplace reporting and anonymous follow-up. It is designed around the employee reporting a concern, not an employer's internal HR workflow.
+[![CI](https://github.com/vidyanshshukla26-oss/Wisper-Guard/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/vidyanshshukla26-oss/Wisper-Guard/actions/workflows/ci.yml)
+
+> A worker-controlled concept for submitting a private concern and staying in touch with an independent reviewer.
+
+## Live Demo
+
+Not deployed yet. The current web app is a local-only concept preview.
+
+## Contract Address
+
+| Network | Address |
+| --- | --- |
+| Preview | Not deployed |
+| Preprod | Not deployed |
+| Mainnet | Not deployed |
+
+## What This Product Does
+
+WhisperGuard is a consumer-facing concept for workers who need a safer-feeling way to document a workplace concern without using an employer-controlled HR portal. The intended user is the individual reporter; an independent reviewer would handle follow-up.
+
+The current app is a frontend and a small Compact learning contract. It does not verify employment, accept or transmit real reports, or provide a reviewer inbox. The contract's narrow demo purpose is to show a private-witness-derived opaque commitment being disclosed to a public ledger. It is not an operational whistleblower system.
+
+## Privacy Model
+
+- **Public:** The demo contract exposes a report count and opaque commitments. A deployed transaction can also expose chain-level sender, timing, and network metadata.
+- **Private:** The contract's report secret and salt are witnesses; they are not written to the ledger. This does not make the current frontend or the reporter's network traffic anonymous.
+- **Proved without revealing:** The demo circuit proves knowledge of values used to derive a commitment. It does not prove active employment, department membership, or a signed company credential.
+
+## Privacy Claim
+
+The contract is designed to publish a commitment rather than report text or a witness value. It does not hide a wallet address, transaction timing, IP address, browser metadata, or facts that could identify a reporter. Do not use the prototype for real reports.
+
+## Tech Stack
+
+- Midnight Network and Compact compiler (target network/version must be checked against the official compatibility matrix)
+- Compact runtime 0.16.0
+- React, TypeScript, Vite
+- Node.js 22 or later, Docker Desktop/WSL for the Midnight toolchain
+
+## Prerequisites
+
+- Node.js 22 or later
+- WSL 2 with Ubuntu on Windows, or a supported Linux/macOS development environment
+- Docker Desktop with its Linux engine running
+- Compact compiler 0.31.1 and the matching Midnight runtime
+- Lace wallet and funded test-network account for deployment (not needed for local UI-only preview)
+
+## Setup & Run Locally
+
+1. Install and start the prerequisites above using the [official Midnight toolchain guide](https://docs.midnight.network/getting-started/installation). Windows development must use WSL; native Windows `compact.exe` is not the Midnight compiler.
+2. Install the web dependencies: `npm ci`.
+3. Run the UI: `npm run dev`.
+4. Compile the contract after installing Compact: `npm run contracts:compile`.
+
+The UI is still a prototype. Its forms clear on refresh and do not submit or save report content.
+
+## Run Tests
+
+```bash
+npm test
+```
+
+This compiles the Compact contract, then runs the JavaScript contract-runtime tests. The tests do not deploy to a network or generate a production transaction proof.
+
+## CI/CD
+
+GitHub Actions is configured to use Node.js 22, install Compact 0.31.1, compile the contract, run the contract-runtime tests, type-check, and build the frontend on pushes to `main` and pull requests.
+
+## Usage Guide
+
+See [docs/USAGE.md](docs/USAGE.md).
+
+## Feedback & Iterations
+
+No user feedback has been collected yet. See [docs/FEEDBACK.md](docs/FEEDBACK.md); add real feedback only after testing with consenting participants.
+
+## Level 5 — User Validation
+
+- Target: 50 Preprod users
+- Current: 0 / 50; no Preprod deployment or verified participants yet
+- See [USERS.md](USERS.md) for the empty participant log
+- See [docs/FEEDBACK.md](docs/FEEDBACK.md) for the feedback log
+
+## Level 6 Users
+
+See [LAUNCH_USERS.md](LAUNCH_USERS.md). Target: 20 participants; current count: 0. No launch users are represented as real.
+
+## Product X Profile
+
+Not created yet.
+
+## Brand Assets
+
+Not created yet. See [docs/BRAND.md](docs/BRAND.md) for the written brand direction.
+
+## Product Proposal
+
+See [PROPOSAL.md](PROPOSAL.md); the challenge-requested initial idea and feasibility answers are intentionally left for the project owner.
+
+## Initial Idea
+
+[Project owner: fill this in manually, as required by the challenge.]
+
+## Screenshots
+
+[Project owner: add verified Compact compile output and a real deployed contract address screenshot after those steps succeed.]
+
+## Demo Video
+
+[Project owner: add the demo video link after a real Preprod deployment is available.]
 
 ## Prototype status
 
