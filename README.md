@@ -6,7 +6,7 @@
 
 ## Live Demo
 
-Not deployed yet. The current web app is a local-only concept preview.
+[Live Demo]https://wisper-guard.vercel.app/
 
 ## Contract Address
 
