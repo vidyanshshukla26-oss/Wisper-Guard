@@ -12,7 +12,7 @@
 
 | Network | Address |
 | --- | --- |
-| Preview | Not deployed |
+| Preview | https://wisper-guard.vercel.app/ |
 | Preprod | Not deployed |
 | Mainnet | Not deployed |
 
