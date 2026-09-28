@@ -6,7 +6,7 @@
 
 ## Live Demo
 
-[Live Demo]https://wisper-guard.vercel.app/
+https://wisper-guard.vercel.app/
 
 ## Contract Address
 
