@@ -13,7 +13,7 @@ https://wisper-guard.vercel.app/
 | Network | Address |
 | --- | --- |
 | Preview | https://wisper-guard.vercel.app/ |
-| Preprod | Not deployed |
+| Preprod | 0xbc0bcf2d14d13073f5117b4ff63e71d4db2cfb939637b0fb394fa26e369f142c |
 | Mainnet | Not deployed |
 
 ## What This Product Does
