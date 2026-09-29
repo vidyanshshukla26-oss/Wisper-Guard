@@ -1,16 +1,4 @@
-pragma language_version 0.23;
-
-import CompactStandardLibrary;
-
 export ledger reportCount: Uint<32>;
-export ledger reportCommitments: Set<Bytes<32>>;
-
-witness reportSecret(): Bytes<32>;
-witness reportSalt(): Bytes<32>;
-
-constructor() {
-  reportCount = 0;
-}
 
 export circuit anchorReport(): [] {
   const secret = reportSecret();
