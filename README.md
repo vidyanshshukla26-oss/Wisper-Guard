@@ -14,7 +14,7 @@ https://wisper-guard.vercel.app/
 | --- | --- |
 | Preview | https://wisper-guard.vercel.app/ |
 | Preprod | 0xbc0bcf2d14d13073f5117b4ff63e71d4db2cfb939637b0fb394fa26e369f142c |
-| Mainnet | Not deployed |
+| Mainnet | 0xe071b61f651195206458520c85185e53de659c659cfb308e297d2a676c1fa6f8 |
 
 ## What This Product Does
 
