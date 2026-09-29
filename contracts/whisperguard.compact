@@ -21,6 +21,5 @@ export circuit anchorReport(): [] {
   assert(reportCount < 4294967295, "The report counter is full");
 
   reportCommitments.insert(disclose(commitment));
-  const newCount: Uint<32> = reportCount + 1;
-  reportCount = newCount;
+  reportCount = Uint<32>(reportCount + 1);
 }
