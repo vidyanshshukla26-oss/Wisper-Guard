@@ -19,8 +19,15 @@ jobs:
       - name: Install Compact
         run: |
           curl --proto '=https' --tlsv1.2 -LsSf https://github.com/midnightntwrk/compact/releases/latest/download/compact-installer.sh | sh
-          echo "$HOME/.compact/bin" >> "$GITHUB_PATH"
-          "$HOME/.compact/bin/compact" update 0.31.1
+          export PATH="$HOME/.local/bin:$PATH"
+          echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+
+          if [ ! -x "$HOME/.local/bin/compact" ]; then
+            echo "Compact binary was not installed to $HOME/.local/bin"
+            exit 1
+          fi
+
+          compact update 0.31.1
       - run: npm test
       - run: npm run lint
       - run: npm run build
